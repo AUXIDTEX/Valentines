@@ -99,7 +99,7 @@ yesBtn.addEventListener('click', () => {
 
     document.getElementById('main-card').innerHTML = `
         <h1 style="color: #f472b6;">Dataset Complete! ❤️</h1>
-        <p>Yeeey! Ви успішно встановили Neural Link!<br>До зустрічі в школі!</p>
+        <p>Yeeey! Я знаю, що ти не хочеш мене засмутити!<br>До зустрічі в школі!</p>
         <p style="font-size: 0.8rem; color: #94a3b8; margin-top: 20px;">
             Статистика: ${noClickCount} спроб відмовити 😄
         </p>
