@@ -3,6 +3,38 @@ const noBtn = document.getElementById('noBtn');
 const statusText = document.getElementById('status');
 const questionText = document.getElementById('question');
 
+
+const countdownScreen = document.getElementById('countdown-screen');
+const mainCard = document.getElementById('main-card');
+const countdownEl = document.getElementById('countdown');
+
+// 14 лютого 00:00 (за Києвом)
+const targetDate = new Date('2026-02-14T00:00:00+02:00');
+
+function updateCountdown() {
+    const now = new Date();
+    const diff = targetDate - now;
+
+    if (diff <= 0) {
+        countdownScreen.style.display = 'none';
+        mainCard.style.display = 'block';
+        clearInterval(timer);
+        return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    countdownEl.textContent =
+        `${days}д ${hours}г ${minutes}хв ${seconds}с`;
+}
+
+updateCountdown();
+const timer = setInterval(updateCountdown, 1000);
+
+
 let scaleMultiplier = 1;
 let noClickCount = 0;
 let clickHistory = [];
