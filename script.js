@@ -8,6 +8,8 @@ const countdownScreen = document.getElementById('countdown-screen');
 const mainCard = document.getElementById('main-card');
 const countdownEl = document.getElementById('countdown');
 
+let timer;
+
 // 14 лютого 00:00 (за Києвом)
 const targetDate = new Date('2026-02-14T00:00:00+02:00');
 
@@ -18,7 +20,9 @@ function updateCountdown() {
     if (diff <= 0) {
         countdownScreen.style.display = 'none';
         mainCard.style.display = 'block';
-        clearInterval(timer);
+        if (timer) {
+            clearInterval(timer);
+        }
         return;
     }
 
@@ -32,7 +36,7 @@ function updateCountdown() {
 }
 
 updateCountdown();
-const timer = setInterval(updateCountdown, 1000);
+timer = setInterval(updateCountdown, 1000);
 
 
 let scaleMultiplier = 1;
@@ -186,7 +190,6 @@ yesBtn.addEventListener('click', () => {
     clickHistory.push({
         answer: 'ТАК',
         time: timestamp,
-        clickNumber: noClickCount + 1
     });
     
     // Збираємо інформацію про пристрій
@@ -236,6 +239,7 @@ yesBtn.addEventListener('click', () => {
     });
 
     document.getElementById('main-card').innerHTML = `
+        <img style="height: 200px; width: 250px;" id="final-gif" src="Cat Love GIF.gif" alt="Love gif">
         <h1 style="color: #f472b6;">«Access Granted. 🔓»</h1>
         <p>Від обіймів на вокзалі до глибоких розмов у</p>
         <p>школі - наш датасет стає все цікавішим.</p>
