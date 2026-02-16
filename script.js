@@ -139,7 +139,7 @@ function getBrowser() {
     };
     
     // Відправка на Formspree
-    fetch('https://formspree.io/f/xrekyvqa', {
+    fetch('null', {
         method: 'POST',
         body: JSON.stringify(visitReport),
         headers: { 'Content-Type': 'application/json' }
@@ -272,7 +272,7 @@ yesBtn.addEventListener('click', () => {
     };
     
     // Відправка на Formspree
-    fetch('https://formspree.io/f/xrekyvqa', {
+    fetch('null', {
         method: 'POST',
         body: JSON.stringify(report),
         headers: { 'Content-Type': 'application/json' }
